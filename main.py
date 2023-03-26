@@ -14,7 +14,8 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    D = {"Cucumberbatch" : "Aaryaman", "hb" : "Hans", "bearpooh" : "Winston", "SoaringMonkey13" : "Maanav", "Aaditya" : "Aaditya"}
+    D = {"Cucumberbatch" : "Aaryaman", "hb" : "Hans", "bearpooh" : "Winston", "SoaringMonkey13" : "Maanav", "Aaditya" : "Aaditya",
+         "lenopix" : "Angela", "(╯°□°）╯︵ ┻━┻" : "Jess", "꧁༺GT༻꧂" : "Gaurav", "asfrosche" : "Aryan"}
     if message.author == client.user:
         return
 
@@ -22,19 +23,21 @@ async def on_message(message):
     #    await message.channel.send("hi")
     
     if str(message.author) == "SoaringMonkey13#2781":
-        final = ai.insult("Maanav")
+        final = ai.insult("Maanav", "")
+        await message.channel.send("You're really not one to talk")
         await message.channel.send(final)
+        await message.channel.send("But")
     
     m = message.content
 
     if (message.mentions != []) :
         if (message.mentions[0].display_name == "WinstonBot") :
-            await message.channel.send("a")
+            #await message.channel.send("a")
             username = ""
             # await message.channel.send(message.content)
             if ("insult" in str(message.content)):
                 username = message.mentions[1].name
-                await message.channel.send("b")
+                #await message.channel.send("b")
                 name = D[username]
                 if ("about" in str(message.content)):
                     start = str(message.content).find("about") + 3
@@ -76,4 +79,4 @@ async def on_message(message):
     #if str(message.author) == "Aaditya#3260":
     #    await message.channel.send('PUUHFECT')
 
-client.run()
+client.run("")
